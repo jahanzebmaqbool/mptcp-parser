@@ -1,0 +1,140 @@
+
+
+ Printing stats summary...
+
+   Total Packets (132789)
+   Total TCP Packets (132761)
+   Total TCP Payload (130927040 bytes)
+   Total # MPTCP connections (4)
+   Total # Subflows (6)
+   Connection (1) has 2 subflow(s) 
+   Connection (2) has 1 subflow(s) 
+   Connection (3) has 1 subflow(s) 
+   Connection (4) has 2 subflow(s) 
+
+ 
+
+Printing all connection data summary...
+
+   [MPTCP_CONN #: 1]
+   Payload bytes (bytes in flight): 130909536
+   Sender Key: 0x1d1d262c4cb328fd
+   Receiver Key: 0xc58478a9dd4bdc20
+   Subflow count: 2
+
+   Printing Subflow Level Data...
+
+      Subflow #: 1
+      SYN packet data...
+         Token: 0x46c7cd1a
+         Nonce: 0x8c80207e
+      SYN/ACK packet data...
+         Hmac (64-bit trunc): 0x46839e7189e39c55
+         Nonce: 0x7daf17ba
+      ACK packet data...
+         Hmac (160-bit): 0x5c71e6b1a900b7699d63a61724051d57b3b0f323
+
+      Number of Packets in this subflow: 66
+      subflow payload bytes (bytes in flight): 42840
+
+
+      Subflow #: 2
+      SYN packet data...
+         Token: 0x46c7cd1a
+         Nonce: 0x8e43b8cf
+      SYN/ACK packet data...
+         Hmac (64-bit trunc): 0x7f79dd776b464597
+         Nonce: 0x8ebd19ca
+      ACK packet data...
+         Hmac (160-bit): 0x5c71e6b1a900b7699d63a61724051d57b3b0f323
+
+      Number of Packets in this subflow: 73084
+      subflow payload bytes (bytes in flight): 71665752
+
+
+   +------------------------------------------------------------+
+   [MPTCP_CONN #: 2]
+   Payload bytes (bytes in flight): 660
+   Sender Key: 0xda4d294f8b537f8
+   Receiver Key: 0x5686675606032088
+   Subflow count: 1
+
+   Printing Subflow Level Data...
+
+      Subflow #: 1
+      SYN packet data...
+         Token: 0x899cf6f6
+         Nonce: 0x50b58a40
+      SYN/ACK packet data...
+         Hmac (64-bit trunc): 0x2968e34d2be9baab
+         Nonce: 0xf2da6ae0
+      ACK packet data...
+         Hmac (160-bit): 0x8cbb4e7e63b7fb45e7f403271e9d8ded5d6c40f6
+
+      Number of Packets in this subflow: 15
+      subflow payload bytes (bytes in flight): 550
+
+
+   +------------------------------------------------------------+
+   [MPTCP_CONN #: 3]
+   Payload bytes (bytes in flight): 1124
+   Sender Key: 0x50cfb4edc26fb300
+   Receiver Key: 0x4348f3a7fce3992b
+   Subflow count: 1
+
+   Printing Subflow Level Data...
+
+      Subflow #: 1
+      SYN packet data...
+         Token: 0x4a238f49
+         Nonce: 0xa932065c
+      SYN/ACK packet data...
+         Hmac (64-bit trunc): 0x784810e5b7f9ed7a
+         Nonce: 0x80ed288b
+      ACK packet data...
+         Hmac (160-bit): 0xc8a96e6d802767cefbf21089b8ffa8667d7f0e96
+
+      Number of Packets in this subflow: 15
+      subflow payload bytes (bytes in flight): 539
+
+
+   +------------------------------------------------------------+
+   [MPTCP_CONN #: 4]
+   Payload bytes (bytes in flight): 15720
+   Sender Key: 0xc50f98346297f341
+   Receiver Key: 0x2eca56deb671be8d
+   Subflow count: 2
+
+   Printing Subflow Level Data...
+
+      Subflow #: 1
+      SYN packet data...
+         Token: 0x3ce2f5f6
+         Nonce: 0x27fa7a4d
+      SYN/ACK packet data...
+         Hmac (64-bit trunc): 0x827064762872f449
+         Nonce: 0xf563172c
+      ACK packet data...
+         Hmac (160-bit): 0x18e4076da13cd31af2bda04590db889a50c7a89f
+
+      Number of Packets in this subflow: 2
+      subflow payload bytes (bytes in flight): 2
+
+
+      Subflow #: 2
+      SYN packet data...
+         Token: 0x3ce2f5f6
+         Nonce: 0x27fa7a4d
+      SYN/ACK packet data...
+         Hmac (64-bit trunc): 0x827064762872f449
+         Nonce: 0xf563172c
+      ACK packet data...
+         Hmac (160-bit): 0x18e4076da13cd31af2bda04590db889a50c7a89f
+
+      Number of Packets in this subflow: 261
+      subflow payload bytes (bytes in flight): 15658
+
+
+   +------------------------------------------------------------+
+   Total MPTCP Payload (for all mptcp connections): 130927040 bytes
+

@@ -1,0 +1,71 @@
+This is the readme file for the mptcp-task project. This describes the necessary information related to project. 
+
+Author: Jahanzeb Maqbool
+Email: jahanzeb.maqbool@seecs.edu.pk
+
+******************************************************************************************
+HOW TO RUN: This is very important that you compile and run using the commands given below:
+
+compile  :  $ g++ -Wall -o mptcp_parser -D__STDC_FORMAT_MACROS mptcp_parser.c -lpcap
+execute  :  $ ./mptcp_parser mptcp-assignment.pcap
+redirect :  $ ./mptcp_parser mptcp-assignment.pcap > output.txt
+
+Developed and tested on an x86_64 linux machine with following specs;
+OS: CentOS 6
+Kernel: Linux 2.6.32-358.11.1.el6.x86_64
+compiler: gcc (GCC) 4.4.7-3, g++ (GCC) 4.4.7-3
+
+******************************************************************************************
+
+
+A. Project Description:
+-------------------
+The purpose of this project is to retrieve some information related to mptcp from a given .pcap file. (see DESCRIPTION file in main directory for more detailed information).
+
+
+B. Project files:
+--------------------
+ a)mptcp_parser.c : main source file
+ b)mymptcp.h : header file containing necessary data structures for headers as well as holding the per-connection/per-subflow data.
+ c)mptcp-assignment.pcap: input trace file.
+ 
+ 
+C. Important data structures:
+-------------------------
+Apart from standard tcp/ip header structures, there is "mptcp_conn_ds" structure. This represents one connection level information. Inside this struct, an important struct named "mptcp_subflow" is present, which holds the information related to an individual subflow.
+In "mptcp_conn_ds" there is a std::vector of type "mptcp_subflow". This vector grows as the number of subflows per connections increase.
+There are other utility methods are in this stuct as well. (see mymptcp.h"
+
+D. Assumptions:
+-----------
+In this project, I have followed some assumption:
+
+0)IMPORTANT: in order to get the payload, I used this method;
+	payload bytes = ip_len - (size of IP header + size of TCP header)
+Reminder: This payload bytes are actually bytes in flight.
+	
+1) for each mptcp connection, the subflow counter begins from the following MP_JOIN packet (after the final ack is received in hand-shake).
+
+2) The counter for no. of packets in each subflow starts right after the subflow has been established (after handshake)This means, handshake packets are not counted.
+   
+3) during print of the subflow related information; I am printing following variables;
+	a) if SYN Packet: print token, nonce
+	b) if SYN/ACK Packet: print Hmac (64 bit truncated), nonce
+	c) if ACK Packet: print full mac (160 bit full).
+
+4) The output of the program is as follows;
+	
+	a)First, print general counting statistics about total packet, total bytes, total MPTCP connections etc... 
+	b)Prints the connection level data;
+	c)Iterate over each subflow and prints the subflow related data.
+
+
+
+REFERENCE(s): For this project, I have referred to some parts of the tcpdump source code. I have also used some of the utility methods/data structres from tcpdump source. The reference files include; tcp.h, mptcp.h and print-tcp.c
+For the licence information of these files and tcpdump; 
+please refer to THIRDPARTY_LICENCES file in the main directory.
+
+
+DISCLAIMER: This software has no warranty or whatsoever. Use on your own behalf.
+
+***********************************************************************

@@ -1,0 +1,21 @@
+Description:
+------------
+Multipath TCP, defined in RFC6824, supports one connection over multiple paths/interfaces by establishing several subflows. Each subflows appears to routers as a single TCP connection, uniquely identified by the tuple <IP src, TCP port src, IP dst, TCP port dst>. Multipath TCP links the different subflows that belong to a given MPTCP connection by using tokens. The tokens are present in the MP_JOIN option that is included in the SYN segment of the subsequent subflows. On the initial subflow, the token can be derived from a HMAC as described in RFC6824.
+
+The pcap packet trace for this assignment is at http://perso.uclouvain.be/marco.canini/tmp/mptcp-assignment.pcap (shasum: 1dd13cc81cf9175517ca0b96837337e840e986e5). This trace was collected on a Multipath TCP server that is used to perform measurements. It contains several MPTCP connections that use several subflows. Recent versions of tcpdump and wireshark can be used to read the trace and interpret the MPTCP options.
+
+Main task (1 + 2):
+1. Write code in a scripting or programming language of your choice to process the pcap file and count the number of MPTCP connections. For each MPTCP connection, your program should report the token values that are used on the client and on the server.
+2. Write code to report the number of payload bytes cumulatively exchanged over each MPTCP connection as well as the number of bytes and packets exchanged over each subflow that belongs to each MPTCP connection (hint: think about which data structure you need to track per-connection and per-subflow state).
+
+To be clear, while we advise that you use tcpdump or wireshark to inspect the trace, your software should be completely self-contained and not rely on any pre-processing step. That is, we must be able to run your software with the trace filename as its sole argument and obtain the requested results.
+
+Bonus task:
+As a bonus task, use a git repository to track the revisions of your code as you make progress with the assignment.
+
+To complete the interview, address the main task and the optional bonus task. Send us an email with the source code or, if you carry out the bonus task, share the git repository with us (e.g., via github or as an archive attachment) when you submit your solution. Submitting a partial solution is likely better than no solution.
+
+Remarks: 
+* in case you find any ambiguity in the text above, please make your own assumption about how you are interpreting the text and write down the assumption you made when you submit your solution.
+* we suggest that before you try to read the data in the trace file in your software, you first open it with tcpdump or wireshark to confirm that your download is not corrupted.
+* you do not have to implement a pcap file parser; for that matter, building upon libpcap or a similar library is a smart thing to do™.
